@@ -8,7 +8,7 @@ const styles = {
   pointer: { cursor: 'pointer' }
 }
 
-const Grocery = ({ id, purchased, name, updateGrocery, deleteGrocery }) => (
+const Grocery = ({ id, purchased, name, updateGrocery, deleteGrocery, editGrocery }) => (
   <div className="col s12">
     <div className="col m8">
       <div style={ purchased ? styles.purchased : {} } className="center">
@@ -24,6 +24,9 @@ const Grocery = ({ id, purchased, name, updateGrocery, deleteGrocery }) => (
       />
       <label htmlFor={`product-${id}`}>Buy It Yet?</label>
     </div>
+    <div style={ styles.pointer } className="col m1" onClick={() => editGrocery(id)}>
+      Edit
+      </div>
     <div style={ styles.pointer } className="col m1" onClick={() => deleteGrocery(id)}>
       Remove
     </div>

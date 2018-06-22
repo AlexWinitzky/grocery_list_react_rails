@@ -1,7 +1,7 @@
 import React from 'react';
 import Grocery from './Grocery';
 
-const GroceryList = ({ groceries, updateGrocery, deleteGrocery }) => (
+const GroceryList = ({ groceries, updateGrocery, deleteGrocery, editGrocery }) => (
   <div className="row">
     { groceries.map( grocery => 
         <Grocery
@@ -9,6 +9,7 @@ const GroceryList = ({ groceries, updateGrocery, deleteGrocery }) => (
           {...grocery}
           updateGrocery={updateGrocery}
           deleteGrocery={deleteGrocery}
+          editGrocery={editGrocery}
         />
       )
     }

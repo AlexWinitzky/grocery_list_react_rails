@@ -1,5 +1,5 @@
 class Api::ProductsController < Api::ApiController
-  before_action :set_product, only: [:update, :destroy]
+  before_action :set_product, only: [:edit, :update, :destroy]
 
   def index
     render json: Product.all.order(:created_at)
@@ -9,6 +9,14 @@ class Api::ProductsController < Api::ApiController
     product = Product.new(product_params)
     if product.save
       render json: product
+    else
+      render json: { errors: product.errors }, status: 422
+    end
+  end
+
+  def edit
+    if @product.update(product_params)
+      render json: @product
     else
       render json: { errors: product.errors }, status: 422
     end
